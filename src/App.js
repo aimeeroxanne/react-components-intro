@@ -27,9 +27,9 @@ class App extends Component {
     let result = 0
     let cartStuff = this.state.cart
     for(let i = 0; i < cartStuff.length; i++){
-      result += cartStuff[i].product.priceInCents
+      result += cartStuff[i].product.priceInCents * cartStuff[i].quantity
     }
-    this.state.total = result / 100
+    this.state.total = this.state.total + (result / 100)
   }
 
   onSubmit = (e)=> {
