@@ -4,6 +4,7 @@ import CartFooter from './footer.js';
 import CartItems from './items.js'
 import CartItem from './item.js'
 import AddItem from './addItem.js'
+import Total from './total.js'
 
 class App extends Component {
 
@@ -18,7 +19,17 @@ class App extends Component {
     { id: 47, name: 'Ergonomic Bronze Lamp', priceInCents: 40000 },
     { id: 48, name: 'Awesome Leather Shoes', priceInCents: 3990 }
   ],
-   cart : []
+   cart : [],
+   total: 0
+  }
+
+  total = () => {
+    let result = 0
+    let cartStuff = this.state.cart
+    for(let i = 0; i < cartStuff.length; i++){
+      result += cartStuff[i].product.priceInCents
+    }
+    this.state.total = result / 100
   }
 
   onSubmit = (e)=> {
@@ -59,6 +70,7 @@ class App extends Component {
       }
     }
 
+    this.total()
     this.forceUpdate()
     e.target.reset()
     // console.log(this.state)
@@ -74,6 +86,7 @@ class App extends Component {
       <div>
         <CartHeader />
         <CartItems items={this.state.cart}/>
+        <Total added={this.state.total}/>
         <AddItem type={this.state.products} onSubmit={this.onSubmit}
         onChange={this.onChange}
         />
