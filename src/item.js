@@ -2,11 +2,11 @@ import React from 'react';
 
 const CartItem = (props) => {
   return (
-    <div class="list-group-item">
-      <div class="row">
-        <div class="col-md-8">{props.product.name}</div>
-        <div class="col-md-2">{props.product.priceInCents}</div>
-        <div class="col-md-2">{props.quantity}</div>
+    <div className="list-group-item">
+      <div className="row">
+        <div className="col-md-8">{props.product.name}</div>
+        <div className="col-md-2">{props.product.priceInCents / 100}</div>
+        <div className="col-md-2">{props.quantity}</div>
       </div>
     </div>
   )
