@@ -1,5 +1,5 @@
 import React from 'react';
-import CartItem from './item.js'
+import CartItem from './cartItem.js'
 
 const CartItems = (props) => {
 
@@ -14,9 +14,11 @@ const CartItems = (props) => {
             <div className="col-md-2">Quantity</div>
           </div>
         </div>
-        {props.items.map(item => <CartItem
-        key={item.id}
-        product={item.product} quantity={item.quantity}/>)}
+        {props.items().map((item, index) => <CartItem
+        key={index}
+        name={item.name}
+        price={item.priceInCents}
+        quantity={item.quantity}/>)}
       </div>
     </div>
   )

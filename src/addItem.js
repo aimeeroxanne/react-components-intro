@@ -11,7 +11,7 @@ const AddItem = (props) => {
             <input type="number" max="50" name="quantity" onChange={props.onChange}></input>
           </div>
           <div className="form-group">
-            <label htmlFor="type">Type</label>
+            <label htmlFor="type">Product</label>
             <select name="name" onChange={props.onChange}>
               <option>Choose an Item</option>
               {props.type.map(item =>
