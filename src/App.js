@@ -28,7 +28,7 @@ class App extends Component {
     this.setState({products: productsJSON, maxID: maxID})
   }
 
-  onSubmit = (e)=> {
+  onSubmit = (e) => {
     e.preventDefault()
 
     let products = this.state.products
@@ -86,6 +86,8 @@ class App extends Component {
 
   onChange = (e)=> {
     e.preventDefault()
+    console.log("e.target.name", e.target.name)
+    console.log("state", this.state)
     this.setState({[e.target.name]: e.target.value})
   }
 
